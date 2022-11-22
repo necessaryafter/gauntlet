@@ -1,3 +1,0 @@
-name: Eclipse-Gauntlet
-version: '${version}'
-main: net.redespring.gauntlet.GauntletPlugin
