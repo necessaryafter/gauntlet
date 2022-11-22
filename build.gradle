@@ -14,19 +14,19 @@ repositories {
     maven { url = 'https://repo.titanvale.net/snapshots/' }
     maven { url = 'https://repo.ashcon.app/nexus/content/repositories/snapshots/' }
     maven { url = 'https://oss.sonatype.org/content/groups/public/' }
-    maven { url = 'https://jitpack.io/' }
+    maven { url = "https://repo.aikar.co/content/groups/aikar/" }
     maven { url = 'https://repo.dmulloy2.net/repository/public/' }
+
+    maven { url = 'https://jitpack.io/' }
 }
 
 dependencies {
 
     compileOnly fileTree('libs')
 
+    implementation "co.aikar:acf-paper:0.5.1-SNAPSHOT"
     implementation 'com.github.HenryFabio:sql-provider:9561f20fd2'
     implementation 'com.github.ben-manes.caffeine:caffeine:2.9.0' //higher only java 11
-
-    compileOnly 'net.titanvale:titanium-api:1.8.8-R0.1-SNAPSHOT'
-    compileOnly 'net.titanvale:titanium-server:1.8.8-R0.1-SNAPSHOT'
 
     compileOnly 'me.lucko:helper:5.6.13'
     compileOnly 'net.luckperms:api:5.4'
