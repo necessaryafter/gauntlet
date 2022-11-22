@@ -29,6 +29,9 @@ public class PlayerConnectionListener implements TerminableModule {
                     if(user == null)
                         user = new User(player.getName());
 
+                    user.getGems()
+                            .forEach(user::activeEffect);
+
                     userRegistry.registerUser(user);
                 }).bindWith(consumer);
 
@@ -41,6 +44,7 @@ public class PlayerConnectionListener implements TerminableModule {
                         // TODO: 22/11/2022 register in database
                         final User user = userByName.get();
 
+                        userRegistry.removeUser(user);
                         System.out.printf("[%s] A user updated in database. (%s)", getClass().getName(), user);
                     }
 

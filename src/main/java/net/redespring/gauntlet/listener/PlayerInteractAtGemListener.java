@@ -8,6 +8,7 @@ import net.redespring.gauntlet.gem.Gem;
 import net.redespring.gauntlet.registry.GemRegistry;
 import net.redespring.gauntlet.registry.UserRegistry;
 import net.redespring.gauntlet.user.User;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -44,8 +45,18 @@ public class PlayerInteractAtGemListener implements TerminableModule {
                             return;
                         }
 
+                        user.activeEffect(gem);
                         player.sendMessage("§aA joia foi ativada com sucesso!");
-                        // TODO: 22/11/2022 remove from invetory
+
+                        if(user.getGems().size() == 6) {
+                            for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                                onlinePlayer.sendMessage(new String[] {
+                                        "",
+                                        String.format("§a§l MANOPLA!§a O jogador §f%s §acoletou todas as jóias do infinito.", onlinePlayer.getName()),
+                                        ""
+                                });
+                            }
+                        }
                     }
                 }).bindWith(consumer);
     }
