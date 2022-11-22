@@ -21,4 +21,14 @@ public class GemRegistry {
                 .findFirst();
     }
 
+    public Optional<Gem> getGemByName(String gemName) {
+        return registeredGems.stream()
+                .filter(gem -> gem.getName().equalsIgnoreCase(gemName))
+                .findFirst();
+    }
+
+    public List<Gem> getCollection() {
+        return registeredGems;
+    }
+
 }
